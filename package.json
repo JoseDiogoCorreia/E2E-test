@@ -1,0 +1,32 @@
+{
+  "name": "e2e-tests",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "npx playwright install",
+    "start": "cucumber-js test",
+    "test": "cucumber-js test",
+    "test:@only": "cucumber-js --profile only",
+    "test:debug": "cucumber-js --debug",
+    "lint": "eslint src --ext=ts,d.ts --max-warnings=0 --cache=true --cache-location=out/.eslintcache",
+    "lint:w": "nodemon --watch src --ext ts --delay 50ms --exec \"npm run lint -- --fix\"",
+    "lint:ci": "npm run lint -- -f html -o out/lint/index.html && npm run lint -- -f json -o out/lint/result.json",
+    "bundle": "node ./bundle.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@cucumber/cucumber": "^11.2.0",
+    "@playwright/test": "^1.51.1",
+    "@types/chance": "^1.1.7",
+    "chance": "^1.1.13",
+    "dotenv": "^16.5.0",
+    "jszip": "^3.10.1",
+    "playwright": "^1.51.1",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.1",
+    "typescript": "^5.8.3"
+  }
+}
